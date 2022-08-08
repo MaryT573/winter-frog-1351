@@ -20,10 +20,10 @@ RSpec.describe "Garden show" do
     plantplot5 = PlantPlot.create(plant: plant5, plot: plot1)
     plantplot6 = PlantPlot.create(plant: plant5, plot: plot2)
 
-    visit "/garden/#{garden.id}"
-
-    expect(page).to_not have_content(plant1.name)
+    visit "/gardens/#{garden.id}"
     
+    expect(page).to_not have_content(plant1.name)
+
     expect(page).to have_content(plant2.name)
     expect(page).to have_content(plant3.name)
     expect(page).to have_content(plant4.name)

@@ -1,7 +1,12 @@
 <h1><%= @garden.name %>: </h1>
 
+<% plants = [] %>
 <% @garden.plots.each do |plot| %>
   <% plot.plants.under_100.each do |plant| %>
-    <%= plant.name %>
+    <% plants << plant %>
   <% end %>
+<% end %>
+
+<% plants.uniq.each do |plant| %>
+  <%= plant.name %>
 <% end %>

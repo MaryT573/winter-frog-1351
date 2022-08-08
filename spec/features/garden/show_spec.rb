@@ -12,7 +12,7 @@ RSpec.describe "Garden show" do
     plant3 = Plant.create!(name: "pumpkin", description: "a pumpkin", days_to_harvet: 20)
     plant4 = Plant.create!(name: "lilac", description: "a lilac", days_to_harvet: 3)
     plant5 = Plant.create!(name: "ginger", description: "a ginger plant", days_to_harvet: 8)
-
+  
     plantplot1 = PlantPlot.create(plant: plant1, plot: plot1)
     plantplot2 = PlantPlot.create(plant: plant2, plot: plot2)
     plantplot3 = PlantPlot.create(plant: plant3, plot: plot1)
@@ -21,7 +21,7 @@ RSpec.describe "Garden show" do
     plantplot6 = PlantPlot.create(plant: plant5, plot: plot2)
 
     visit "/gardens/#{garden.id}"
-    
+
     expect(page).to_not have_content(plant1.name)
 
     expect(page).to have_content(plant2.name)
